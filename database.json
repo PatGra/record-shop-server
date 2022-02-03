@@ -1,0 +1,38 @@
+{
+  "records": [
+    {
+      "title": "Egal",
+      "artist": "DJ Egal",
+      "year": "2015",
+      "cover": "",
+      "price": 5.5
+    },
+    {
+      "title": "xyz",
+      "artist": "DJ Egal",
+      "year": "2015",
+      "price": 5.5
+    },
+    {
+      "title": "xyz",
+      "artist": "DJ Egal",
+      "year": "2015",
+      "price": 5.5,
+      "cover": ""
+    },
+    {
+      "title": "title",
+      "artist": "DJ",
+      "year": "2015",
+      "price": 5.5,
+      "cover": ""
+    },
+    {
+      "title": "abc",
+      "artist": "artist",
+      "year": "2021",
+      "price": "10.99",
+      "cover": ""
+    }
+  ]
+}
