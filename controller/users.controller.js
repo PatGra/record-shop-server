@@ -1,5 +1,6 @@
 import db from '../database.js';
-const usersModel = require('../models/users.model.js')
+import Users from '../model/users.model.js'
+
 
 export const getUsers = (req, res) => {
     const users = db.data.users;

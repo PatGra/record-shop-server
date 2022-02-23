@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from 'mongoose';
 const { model, Schema } = mongoose;
 
 const recordsSchema = new Schema({
@@ -23,6 +23,6 @@ const recordsSchema = new Schema({
         type: String
     }
 });
-
 const Records = model('Records', recordsSchema, "records");
-module.exports = Records;
+export default Records
+//module.exports = Records;

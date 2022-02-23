@@ -1,9 +1,10 @@
 import db from '../database.js';
-const ordersModel = require('../models/orders.model.js')
+import Orders from '../model/orders.model.js'
+
 
 export const getOrders = async (req, res) => {
     //const orders = db.data.orders;
-    const orders = await ordersModel.find({})
+    const orders = await Orders.find({})
     res.json(orders);
 };
 

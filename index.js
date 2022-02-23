@@ -5,8 +5,6 @@ import usersRouter from './routes/users.routes.js';
 import ordersRouter from './routes/orders.routes.js';
 import {connectMongoose} from './database-mongoose.js'
 
-const mongoose= require('mongoose');
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 const DB_URI ="mongodb://localhost:27017"
