@@ -8,30 +8,23 @@
       "price": 5.5
     },
     {
-      "title": "xyz",
-      "artist": "DJ Egal",
-      "year": "2015",
-      "price": 5.5
+      "title": "Wind of changes",
+      "artist": "Egal",
+      "year": 1990,
+      "price": 10.99
     },
     {
-      "title": "xyz",
-      "artist": "DJ Egal",
-      "year": "2015",
-      "price": 5.5,
+      "title": "Wind of changes 2",
+      "artist": "Egal",
+      "year": 1991,
+      "price": 10.99,
       "cover": ""
     },
     {
-      "title": "title",
-      "artist": "DJ",
-      "year": "2015",
-      "price": 5.5,
-      "cover": ""
-    },
-    {
-      "title": "abc",
-      "artist": "artist",
-      "year": "2021",
-      "price": "10.99",
+      "title": "Wind of changes 2",
+      "artist": "Egal",
+      "year": 1991,
+      "price": 10.99,
       "cover": ""
     }
   ]
