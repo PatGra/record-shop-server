@@ -53,12 +53,10 @@ export const addRecord = async (req, res) => {
 
 export const deleteRecord = async (req, res) => {
     const { id } = req.params;
-    const record = db.data.records.find((rec) => rec.id === parseInt(id, 10));
-    if (!record) {
+    try{
+        const record = await Records.deleteOne({_id: id});
+        res.json(record)
+    } catch (err){
         return res.status(400).send('Nicht gefunden');
     }
-    db.data.records = db.data.records.filter((rec) => rec.id !== id);
-    await db.write(); // async
-
-    res.json(record);
 }

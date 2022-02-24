@@ -1,17 +1,14 @@
-import db from '../database.js';
-import Orders from '../model/orders.model.js'
-
+import Orders from '../model/orders.model.js';
 
 export const getOrders = async (req, res) => {
-    //const orders = db.data.orders;
-    const orders = await Orders.find({})
+    const orders = await Order.find();
     res.json(orders);
 };
 
-export const getOrderById = (req, res) => {
-    const { id } = req.params.id;
+export const getOrderById = async (req, res) => {
+    const { id } = req.params;
 
-    const order = db.data.orders.find((entry) => entry.id === parseInt(id, 10));
+    const order = await Order.findById(id);
     if (!order) {
         return res.status(400).send('Nicht gefunden');
     }
@@ -22,30 +19,28 @@ export const getOrderById = (req, res) => {
 export const addOrder = async (req, res) => {
     const data = req.body;
     // Testen ob data alle infos enthält: title, artist, year, cover, price
-    if (!data.title || !data.artist || !data.year || !data.price) {
-        return res.status(400).send('Falsche Daten');
+    if (!data.recordId || !data.userId || !data.quantity) {
+        return res.status(400).send('Felende Daten');
     }
     
-    const order = {
+    const order = new Order({
         recordId: data.recordId,
+        userId: data.userId,
         quantity: data.quantity,
-    };
+    });
 
-    db.data.orders.push(order);
-    //
-    await db.write(); // async
+    await order.save();
 
     res.send(order);
 }
 
 export const deleteOrder = async (req, res) => {
-    const { id } = req.params.id;
-    const order = db.data.orders.find((entry) => entry.id === parseInt(id, 10));
-    if (!order) {
-        return res.status(400).send('Nicht gefunden');
-    }
-    db.data.orders = db.data.orders.filter((entry) => entry.id !== id);
-    await db.write(); // async
+    const { id } = req.params;
 
-    res.json(order);
+    try {
+        const result = await Order.deleteOne({ _id: id });
+        res.json(result);
+    } catch (err) {
+        return res.status(400).send('Nicht gefunden mit id: '+id+' - '+err);
+    }
 }

@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "lowdb": "^3.0.0",
