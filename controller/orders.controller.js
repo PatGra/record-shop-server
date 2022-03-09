@@ -1,14 +1,14 @@
 import Orders from '../model/orders.model.js';
 
 export const getOrders = async (req, res) => {
-    const orders = await Order.find();
+    const orders = await Orders.find();
     res.json(orders);
 };
 
 export const getOrderById = async (req, res) => {
     const { id } = req.params;
 
-    const order = await Order.findById(id);
+    const order = await Orders.findById(id);
     if (!order) {
         return res.status(400).send('Nicht gefunden');
     }
@@ -23,7 +23,7 @@ export const addOrder = async (req, res) => {
         return res.status(400).send('Felende Daten');
     }
     
-    const order = new Order({
+    const order = new Orders({
         recordId: data.recordId,
         userId: data.userId,
         quantity: data.quantity,
@@ -38,7 +38,7 @@ export const deleteOrder = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await Order.deleteOne({ _id: id });
+        const result = await Orders.deleteOne({ _id: id });
         res.json(result);
     } catch (err) {
         return res.status(400).send('Nicht gefunden mit id: '+id+' - '+err);

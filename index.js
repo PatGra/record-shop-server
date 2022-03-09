@@ -3,11 +3,12 @@ import cors from 'cors';
 import recordsRoutes from './routes/records.routes.js';
 import usersRouter from './routes/users.routes.js';
 import ordersRouter from './routes/orders.routes.js';
-import {connectMongoose} from './database-mongoose.js'
+import {connectMongoose} from './database-mongoose.js';
+import {} from 'dotenv/config'
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-const DB_URI ="mongodb://localhost:27017"
+const DB_URI =process.env.DB_URI
 
 connectMongoose(DB_URI)
 
